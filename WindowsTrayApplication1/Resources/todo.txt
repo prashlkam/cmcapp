@@ -1,0 +1,53 @@
+﻿ Cursor control software - objective / approach 
+--------------------------------------------------
+
+basic approach to be followed from here - could be something like this..........
+
+ * change the cursor theme - the cursor should be changed system wide [we can do this later] 
+ * When Cursor control module is activated - it should do the following.......
+   -> enter a continuous loop
+   -> keep track of 3 valuables 
+	a) a bool named 'firstclick'
+	b) a Timer with interval of something like 1000ms
+	c) an int [values ranging from  1 to 9]
+   -> get mouse input inside the timer method [for every tick] 
+   -> increment the int for every tick [1 to 9 and then start over from 1]
+   -> change value of bool var 'firstclick' for every left click of the mouse [toggle between true and false]
+   -> have a switch case block based on the value of the int var
+
+now based on the value of firstclick there are two possibilities..........
+
+		true									 	false 
+
+
+freeze the animated cursor [if possible]
+
+if int val >=2 && <=5 - move the cursor 		stop the cursor 
+
+toggle value of the bool var				toggle value of the bool var
+
+if int var > 5 - send mouse input			switch to animated cursor theme
+
+
+logic for switch case block..........
+cases:
+	1) do nothing / [drop] / stop
+	2) move cursor up
+	3) move cursor right
+	4) move cursor down
+	5) move cursor left
+	6) send left click
+	7) send double click
+	8) start drag action [ exec a sub branch ]
+	9) send right click
+
+logic for drag [sub branch]..........
+cases:
+	1) Start Drag [no direction]
+	2) Drag Up
+	3) Drag right
+	4) Drag down
+	5) Drag left
+	6) Drop / release
+
+
